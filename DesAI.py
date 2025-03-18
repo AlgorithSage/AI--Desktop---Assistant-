@@ -30,7 +30,7 @@ def chat(query):
     client = openai.OpenAI(api_key=apikey)
   # NEW CLIENT INSTANCE
     response = client.chat.completions.create(  # NEW API CALL
-        model="gpt-4o mini",  # Use "gpt-4" if available
+        model="gpt-4o",  # Use "gpt-4" if available
         messages=chat_history,
         temperature=0.7,
         max_tokens=256
@@ -105,6 +105,22 @@ if __name__ == '__main__':
         if "open music" in query:
             musicPath = "C:\\Users\\Public\\Music\\Sample Music.mp3"  # Change to your music file path
             subprocess.Popen(["start", "", musicPath], shell=True)
+
+        # Open Word
+        elif "open word" in query:
+            speak("Opening Microsoft Word sir...")
+            subprocess.Popen(["start", "winword"], shell=True)
+        
+        # Open Excel
+        elif "open excel" in query:
+            speak("Opening Microsoft Excel sir...")
+            subprocess.Popen(["start", "excel"], shell=True)
+        
+        # Open PowerPoint
+        elif "open powerpoint" in query:
+            speak("Opening Microsoft PowerPoint sir...")
+            subprocess.Popen(["start", "powerpnt"], shell=True)
+
 
         # Tell the time
         elif "the time" in query:
